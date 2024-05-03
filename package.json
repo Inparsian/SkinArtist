@@ -1,0 +1,12 @@
+{
+  "name": "SkinArtist",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "main.js",
+  "license": "MIT",
+  "dependencies": {
+    "canvas": "^2.11.2",
+    "colors": "^1.4.0",
+    "fs": "^0.0.1-security"
+  }
+}
