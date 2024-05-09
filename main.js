@@ -47,6 +47,15 @@ for (let y = 2; y >= 0; y--) {
         const baseSkin = await loadImage('./baseskin.png');
         ctx.drawImage(baseSkin, 0, 0, 64, 32);
 
+        // Make sure nothing's on the face second layer
+        const faceSecondLayerData = ctx.getImageData(40, 8, 8, 8).data;
+        for (let i = 0; i < faceSecondLayerData.length; i += 4) {
+            if (faceSecondLayerData.slice(i, i + 3).some((color) => color !== 0)) {
+                console.error(`The face second layer is not empty. Aborting.`.red);
+                process.exit(1);
+            }
+        }
+
         const template = await loadImage('./template.png');
         ctx.drawImage(template, 8 * x, 8 * y, 8, 8, 8, 8, 8, 8);
 
@@ -55,7 +64,6 @@ for (let y = 2; y >= 0; y--) {
             const noise = ctx.createImageData(width, height);
 
             for (let i = 0; i < noise.data.length; i += 4) {
-                // RGBA
                 [ ...Array(3) ].forEach((_, j) => noise.data[i + j] = Math.floor(Math.random() * 256));
 
                 noise.data[i + 3] = 255;

@@ -15,7 +15,7 @@ Now ensure that you have the following two files in the project's root directory
 - ``template.png`` (72x24 pixels)
     - This will be the image that you'll be putting on your NameMC page. Put whatever you want on it.
 - ``baseskin.png`` (64x64 or 64x32 pixels)
-    - This will be the skin that we'll use to generate the other skins. You can use any skin here, but do **NOT** have anything on the front of the head's second layer, as it will obscure the face, therefore your skin art will not be displayed correctly. The script does not account for this for the time being.
+    - This will be the skin that we'll use to generate the other skins. You can use any skin here, but do **NOT** have anything on the front of the head's second layer, as it will obscure the face, therefore your skin art will not be displayed correctly. The script checks for this and will throw an error if this is the case.
 
 ## Running
 After everything is prepared, all you need to do now is run the script. It will generate the skins for you.
